@@ -1,0 +1,51 @@
+{
+  "Column_rename" : {
+  "Source_File_Column_input" : ["Customer Name","Severity"],
+  "Dictionary_Column_input" : ["Category"] ,
+  "Source_File_Column_output" : ["CUSTOMER NAME","SEVERITY"],
+  "Dictionary_Column_output" : ["CATEGORY"]
+
+
+  },
+  "Source_File": "Kronos-HW-Inventory-Data-17JAN19_csv.csv",
+  "Dictionary" : "Dictionary_Dataset_csv.csv",
+  "Expiry_Reference_Column" : "End of Support Life",
+  "Date-Time-Columns" : ["End of Sale","End of Support Life"],
+  "Find_and_Replace": {
+    "First File Path": "/file01.csv",
+    "Second File Path": "/file02.csv",
+    "Output File Path": "/output01.csv",
+    "Rule name": "Value Matcher",
+    "Rule status": "true",
+    "Content": {
+      "First Column Name": "Model",
+      "First Column Value": ["HP_3PAR 7200","HP_3PAR 8200"] ,
+      "Second Column Name": "Product Name",
+      "Second Column Value": ["3PAR 7200","3PAR 8200"] 
+    }
+  },
+  "Select_mapped_Coloumns": {
+    "Dictionary_Column_Map": [
+      "Product Name"
+    ],
+    "Output File Path": "/output01.csv",
+    "Source_Column_Mapped": [
+      "Model"
+    ],
+    "First File Path": "/file01.csv",
+    "Second File Path": "/file02.csv",
+    "Output Column Selection": {
+      "Second File Columns": [
+        "Product Name",
+        "End of Sale",
+        "End of Support Life"
+      ],
+      "First File Columns": [
+        "Vendor",
+        "Device",
+        "Model",
+        "Family"
+      ]
+    }
+  }
+}
